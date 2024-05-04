@@ -1,0 +1,5 @@
+bertopic
+pandas
+pyarrow
+sentence-transformers
+nltk
