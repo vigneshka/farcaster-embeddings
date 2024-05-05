@@ -1,7 +1,6 @@
-import pyarrow.parquet as pq
+import pyarrow.dataset as ds
+from datetime import datetime, timedelta
 
-file_path = 'raw_data/farcaster-casts-0-1714755600.parquet'
-
-parquet_file = pq.ParquetFile(file_path)
-
-casts = next(parquet_file.iter_batches(batch_size = 1000)) 
+four_days_ago = datetime.now() - timedelta(days=4)
+casts = ds.dataset('raw_data/farcaster-casts-0-1714755600.parquet').to_table(filter=ds.field('timestamp') > four_days_ago)
+print(len(casts))

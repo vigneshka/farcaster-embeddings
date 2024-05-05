@@ -22,9 +22,10 @@ model = BERTopic(
     hdbscan_model=hdbscan_model,
     embedding_model=embedding_model,
     vectorizer_model=vectorizer_model,
-    top_n_words=5,
+    top_n_words=10,
     language='english',
     calculate_probabilities=True,
+    n_gram_range=(1, 2),
     verbose=True,
-    min_topic_size=15,
+    min_topic_size=20,
 )
